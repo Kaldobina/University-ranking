@@ -7,17 +7,27 @@
     tools:context=".AuthenticationView"
     android:id="@+id/authentification">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="207dp"
-        android:layout_height="188dp"
-        android:layout_marginBottom="150dp"
-        android:src="@drawable/start_icon"
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.25"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24000001" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/f4395a15aed1ec63f9db4301c5d4cfe3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/button_sign_in"
@@ -25,7 +35,6 @@
         android:layout_height="56dp"
         android:background="@drawable/draw_for_button"
         android:elevation="2dp"
-        android:translationZ="6dp"
         android:fontFamily="monospace"
         android:text="@string/sign_in"
         android:textAllCaps="false"
@@ -40,8 +49,9 @@
     <EditText
         android:id="@+id/loginSignIn"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:backgroundTint="#000000"
+        android:elevation="2dp"
         android:ems="10"
         android:hint="@string/login"
         android:inputType="textPersonName"
@@ -49,13 +59,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.396" />
 
     <EditText
         android:id="@+id/passwordSignIn"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:backgroundTint="#000000"
+        android:elevation="2dp"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
