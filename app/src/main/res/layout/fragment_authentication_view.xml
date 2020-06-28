@@ -8,7 +8,7 @@
     android:id="@+id/authentification">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView_reg"
         android:layout_width="207dp"
         android:layout_height="188dp"
         android:layout_marginBottom="150dp"

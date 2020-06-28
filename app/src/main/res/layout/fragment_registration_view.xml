@@ -1,80 +1,237 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".RegistrationView">
 
-    <EditText
-        android:id="@+id/fname_reg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/lname_reg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fname_reg"
-        app:layout_constraintVertical_bias="0.01999998" />
-
-    <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/materialButtonToggleGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lname_reg"
-        app:layout_constraintVertical_bias="0.01999998"
-        app:singleSelection="true">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAndroid"
-            style="@style/Widget.MaterialComponents.Button.Icon"
-            app:icon="@drawable/student_reg"
-            app:iconSize="24dp"
-            app:iconTint="@null"
-            android:backgroundTint="@color/colorPrimary"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="Студент"
-            android:textAllCaps="false"
-            android:textColor="@android:color/black"/>
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnJava"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            style="@style/Widget.MaterialComponents.Button.Icon"
-            app:icon="@drawable/abit_reg"
-            app:iconSize="24dp"
-            app:iconTint="@null"
-            android:text="Абитуриент"
-            android:textAllCaps="false"
-            android:textColor="@android:color/black"
-            android:backgroundTint="@color/colorPrimary"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Расскажи о себе!"
+                android:textSize="24sp"
+                android:layout_gravity="start"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="24dp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:textColor="@android:color/black"/>
 
-    </com.google.android.material.button.MaterialButtonToggleGroup>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fname_reg_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="Имя"
+                app:hintTextColor="@android:color/black"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                android:layout_marginTop="56dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fname_reg"
+                    android:textCursorDrawable="@null"
+                    android:inputType="textCapWords"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lname_reg_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="300dp"
+                android:hint="Фамилия"
+                app:hintTextColor="@android:color/black"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lname_reg"
+                    android:inputType="textCapWords"
+                    android:textCursorDrawable="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/materialButtonToggleGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fname_reg_layout"
+                app:layout_constraintVertical_bias="0.0"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnStudent"
+                    style="@style/Widget.MaterialComponents.Button.Icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:checkable="true"
+                    android:text="Студент"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    app:icon="@drawable/student_reg"
+                    app:iconSize="24dp"
+                    app:iconTint="@null" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAbitur"
+                    style="@style/Widget.MaterialComponents.Button.Icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:checkable="true"
+                    android:text="Абитуриент"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    app:icon="@drawable/abit_reg"
+                    app:iconSize="24dp"
+                    app:iconTint="@null" />
+
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <!--Для студента-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/student_view"
+                android:visibility="gone"
+                android:gravity="center_horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/university_l"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:hint="ВУЗ"
+                    app:hintTextColor="@android:color/black"
+                    app:errorEnabled="true"
+                    app:layout_constraintTop_toBottomOf="@+id/materialButtonToggleGroup">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/university"
+                        android:inputType="textCapWords"
+                        android:textCursorDrawable="@null"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/course_l"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Курс"
+                    app:hintTextColor="@android:color/black"
+                    app:errorEnabled="true"
+                    app:layout_constraintTop_toBottomOf="@+id/materialButtonToggleGroup">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/course"
+                        android:inputType="number"
+                        android:textCursorDrawable="@null"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:text="Доказательство"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:text="(фото студенческого/зачетки)"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:contentDescription="Здесь фото студенческого"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="200dp"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:checkable="true"
+                    android:text="Загрузить фото"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="16dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/abit_view"
+                android:visibility="gone"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/about_l"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Расскажи о себе"
+                    app:hintTextColor="@android:color/black"
+                    app:errorEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/about"
+                        android:textCursorDrawable="@null"
+                        android:inputType="textCapWords"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/registrBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:text="Зарегестрироваться"
+                android:textColor="@android:color/black"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/colorAccent"
+                style="@style/Widget.MaterialComponents.Button"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

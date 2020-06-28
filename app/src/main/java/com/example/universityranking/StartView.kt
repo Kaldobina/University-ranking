@@ -13,6 +13,7 @@ class StartView : Fragment() {
 
     var signIn: Button? = null
     var signUp: Button? = null
+    var testBtn: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,17 +23,17 @@ class StartView : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_start_view, container, false)
-/*
-        activity!!.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN*/
-        /*val decor = activity!!.window.decorView*/
+        activity!!.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        val decor = activity!!.window.decorView
 
         signIn = view.findViewById(R.id.signIn_start)
         signUp = view.findViewById(R.id.signUp_start)
+        testBtn = view.findViewById(R.id.test_btn)
 
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val decor: View = activity!!.window.decorView
             decor.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        }*/
+        }
 
         signIn!!.setOnClickListener {
             activity!!.supportFragmentManager
@@ -45,10 +46,19 @@ class StartView : Fragment() {
         signUp!!.setOnClickListener {
             activity!!.supportFragmentManager
                     .beginTransaction()
+                    .replace(R.id.fragment_container, RegistrationFirst())
+                    .addToBackStack(null)
+                    .commit()
+        }
+
+        testBtn?.setOnClickListener {
+            activity!!.supportFragmentManager
+                    .beginTransaction()
                     .replace(R.id.fragment_container, RegistrationView())
                     .addToBackStack(null)
                     .commit()
         }
+
         return view
     }
 

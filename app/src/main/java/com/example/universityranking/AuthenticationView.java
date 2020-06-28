@@ -49,7 +49,7 @@ public class AuthenticationView extends Fragment {
         login = view.findViewById(R.id.loginSignIn);
         password = view.findViewById(R.id.passwordSignIn);
         signIn = view.findViewById(R.id.button_sign_in);
-        image = view.findViewById(R.id.imageView);
+        image = view.findViewById(R.id.imageView_reg);
 
         Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.translate);
 
