@@ -48,14 +48,10 @@ class RegistrationView : Fragment() {
 
         registrBtn?.setOnClickListener {
             if (isStudent || isAbit) {
-                if (firstName?.text.toString().trim() != "" && lastName?.text.toString().trim() != ""
-                        && about?.text.toString().trim() != "" && university?.text.toString().trim() != ""
-                        && course.toString().trim() != "") {
-                    saveUser(firstName?.text.toString().trim(), lastName?.text.toString().trim(),
-                            about?.text.toString().trim(), university?.text.toString().trim(),
-                            course?.text.toString().trim())
-                    Toast.makeText(context, "Registration done", Toast.LENGTH_SHORT).show()
-                } else Toast.makeText(context, "Заполните все поля!", Toast.LENGTH_SHORT).show()
+                saveUser(firstName?.text.toString().trim(), lastName?.text.toString().trim(),
+                        about?.text.toString().trim(), university?.text.toString().trim(),
+                        course?.text.toString().trim())
+                Toast.makeText(context, "Registration done", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(context, "Выберите, кто Вы!'", Toast.LENGTH_SHORT).show()
             }

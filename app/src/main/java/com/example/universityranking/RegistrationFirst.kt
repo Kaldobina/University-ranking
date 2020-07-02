@@ -48,7 +48,8 @@ class RegistrationFirst : Fragment() {
         btnNext!!.setOnClickListener {
             signUp(email?.text.toString().trim(), password?.text.toString().trim())
 
-            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.fragment_container, RegistrationView())?.addToBackStack(null)?.commit()
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.fragment_container,
+                    RegistrationView())?.addToBackStack(null)?.commit()
         }
 
 
